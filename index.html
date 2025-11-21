@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeKids - Learn Coding Fun!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">
+                <span class="logo-icon">💻</span>
+                <h1>CodeKids</h1>
+            </div>
+            <nav>
+                <button class="nav-btn active" data-section="home">Home</button>
+                <button class="nav-btn" data-section="lessons">Lessons</button>
+                <button class="nav-btn" data-section="playground">Playground</button>
+                <button class="nav-btn" data-section="templates">Templates</button>
+                <button class="nav-btn" data-section="challenges">Challenges</button>
+                <button class="nav-btn" data-section="games">Games</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="section active">
+            <div class="container">
+                <div class="hero">
+                    <h2 class="hero-title">Welcome to CodeKids! 🎉</h2>
+                    <p class="hero-subtitle">Learn coding through fun games and interactive lessons!</p>
+                    <div class="hero-features">
+                        <div class="feature-card">
+                            <div class="feature-icon">🎮</div>
+                            <h3>Play & Learn</h3>
+                            <p>Fun games that teach coding concepts</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">✨</div>
+                            <h3>Interactive</h3>
+                            <p>Type code and see magic happen!</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🏆</div>
+                            <h3>Earn Badges</h3>
+                            <p>Complete challenges and collect rewards</p>
+                        </div>
+                    </div>
+                    <button class="btn-primary btn-large" onclick="showSection('lessons')">
+                        Start Learning! 🚀
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lessons Section -->
+        <section id="lessons" class="section">
+            <div class="container">
+                <h2 class="section-title">Coding Lessons 📚</h2>
+                <div class="lessons-grid">
+                    <div class="lesson-card" data-lesson="variables">
+                        <div class="lesson-number">1</div>
+                        <h3>Variables</h3>
+                        <p>Learn to store information in boxes!</p>
+                        <button class="btn-lesson">Start Lesson →</button>
+                    </div>
+                    <div class="lesson-card" data-lesson="loops">
+                        <div class="lesson-number">2</div>
+                        <h3>Loops</h3>
+                        <p>Repeat actions without getting tired!</p>
+                        <button class="btn-lesson">Start Lesson →</button>
+                    </div>
+                    <div class="lesson-card" data-lesson="conditions">
+                        <div class="lesson-number">3</div>
+                        <h3>If/Else</h3>
+                        <p>Make decisions like a smart robot!</p>
+                        <button class="btn-lesson">Start Lesson →</button>
+                    </div>
+                    <div class="lesson-card" data-lesson="functions">
+                        <div class="lesson-number">4</div>
+                        <h3>Functions</h3>
+                        <p>Create your own superpowers!</p>
+                        <button class="btn-lesson">Start Lesson →</button>
+                    </div>
+                    <div class="lesson-card" data-lesson="arrays">
+                        <div class="lesson-number">5</div>
+                        <h3>Arrays</h3>
+                        <p>Store lists of things together!</p>
+                        <button class="btn-lesson">Start Lesson →</button>
+                    </div>
+                    <div class="lesson-card" data-lesson="objects">
+                        <div class="lesson-number">6</div>
+                        <h3>Objects</h3>
+                        <p>Group related information!</p>
+                        <button class="btn-lesson">Start Lesson →</button>
+                    </div>
+                    <div class="lesson-card" data-lesson="events">
+                        <div class="lesson-number">7</div>
+                        <h3>Events</h3>
+                        <p>Make things happen when clicked!</p>
+                        <button class="btn-lesson">Start Lesson →</button>
+                    </div>
+                    <div class="lesson-card" data-lesson="animations">
+                        <div class="lesson-number">8</div>
+                        <h3>Animations</h3>
+                        <p>Make things move and dance!</p>
+                        <button class="btn-lesson">Start Lesson →</button>
+                    </div>
+            </div>
+            </div>
+        </section>
+
+        <!-- Playground Section -->
+        <section id="playground" class="section">
+            <div class="container">
+                <h2 class="section-title">Code Playground 🎨</h2>
+                <div class="playground-container">
+                    <div class="code-editor">
+                        <div class="editor-header">
+                            <span class="editor-title">Your Code</span>
+                            <button class="btn-run" id="run-code">▶️ Run Code</button>
+                        </div>
+                        <textarea id="code-input" class="code-textarea" placeholder="Type your code here! Try: drawCircle(100, 100, 50, 'red')">// Welcome to the playground!
+// Try typing: drawCircle(100, 100, 50, 'red')
+// Or: drawSquare(200, 200, 100, 'blue')
+// Or: drawStar(300, 300, 30, 'yellow')</textarea>
+                    </div>
+                    <div class="output-area">
+                        <div class="output-header">Output</div>
+                        <canvas id="canvas-output" width="500" height="500"></canvas>
+                        <div id="text-output" class="text-output"></div>
+                    </div>
+                </div>
+                <div class="playground-controls">
+                    <button class="btn-clear" onclick="clearCanvas()">🗑️ Clear</button>
+                    <button class="btn-example" onclick="loadExample('basic')">📝 Basic Example</button>
+                    <button class="btn-example" onclick="loadExample('pattern')">🎨 Pattern Example</button>
+                    <button class="btn-example" onclick="loadExample('animation')">✨ Animation Example</button>
+                </div>
+                <div class="playground-hints">
+                    <h3>💡 Available Commands:</h3>
+                    <div class="hints-grid">
+                        <code>drawCircle(x, y, size, color)</code>
+                        <code>drawSquare(x, y, size, color)</code>
+                        <code>drawStar(x, y, size, color)</code>
+                        <code>drawTriangle(x, y, size, color)</code>
+                        <code>drawHexagon(x, y, size, color)</code>
+                        <code>drawLine(x1, y1, x2, y2, color, width)</code>
+                        <code>drawText(text, x, y, size, color)</code>
+                        <code>drawRainbow(x, y, size)</code>
+                        <code>drawGradient(x, y, size, color1, color2)</code>
+                        <code>setBackground(color)</code>
+                        <code>sayHello(name)</code>
+                        <code>calculate(a, b, operation)</code>
+                        <code>animate(callback, duration)</code>
+                        <code>sleep(milliseconds)</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Templates Section -->
+        <section id="templates" class="section">
+            <div class="container">
+                <h2 class="section-title">Code Templates 📋</h2>
+                <p class="section-subtitle">Copy and modify these ready-to-use code examples!</p>
+                <div class="templates-grid">
+                    <div class="template-card">
+                        <h3>🌈 Rainbow Circle</h3>
+                        <p>Create a colorful rainbow circle</p>
+                        <pre class="template-code">drawRainbow(250, 250, 100);</pre>
+                        <button class="btn-template" onclick="copyTemplate('rainbow')">Copy Code</button>
+                    </div>
+                    <div class="template-card">
+                        <h3>⭐ Star Pattern</h3>
+                        <p>Draw multiple stars in a pattern</p>
+                        <pre class="template-code">for (let i = 0; i < 5; i++) {
+  drawStar(100 + i*80, 250, 30, 'yellow');
+}</pre>
+                        <button class="btn-template" onclick="copyTemplate('stars')">Copy Code</button>
+                    </div>
+                    <div class="template-card">
+                        <h3>🎨 Gradient Square</h3>
+                        <p>Create a beautiful gradient</p>
+                        <pre class="template-code">drawGradient(250, 250, 150, 'red', 'blue');</pre>
+                        <button class="btn-template" onclick="copyTemplate('gradient')">Copy Code</button>
+                    </div>
+                    <div class="template-card">
+                        <h3>🔺 Triangle Pattern</h3>
+                        <p>Draw triangles in a row</p>
+                        <pre class="template-code">for (let i = 0; i < 6; i++) {
+  drawTriangle(80 + i*70, 250, 40, 'green');
+}</pre>
+                        <button class="btn-template" onclick="copyTemplate('triangles')">Copy Code</button>
+                    </div>
+                    <div class="template-card">
+                        <h3>💫 Animated Circle</h3>
+                        <p>Make a circle move</p>
+                        <pre class="template-code">animate(function(frame) {
+  clearCanvas();
+  drawCircle(250 + frame*2, 250, 50, 'purple');
+}, 100);</pre>
+                        <button class="btn-template" onclick="copyTemplate('animate')">Copy Code</button>
+                    </div>
+                    <div class="template-card">
+                        <h3>🎯 Target Practice</h3>
+                        <p>Draw concentric circles</p>
+                        <pre class="template-code">for (let i = 5; i > 0; i--) {
+  drawCircle(250, 250, i*20, 
+    i % 2 === 0 ? 'red' : 'white');
+}</pre>
+                        <button class="btn-template" onclick="copyTemplate('target')">Copy Code</button>
+                    </div>
+            </div>
+            </div>
+        </section>
+
+        <!-- Challenges Section -->
+        <section id="challenges" class="section">
+            <div class="container">
+                <h2 class="section-title">Coding Challenges 🎯</h2>
+                <div class="challenges-container">
+                    <div class="challenge-card active" data-challenge="1">
+                        <div class="challenge-header">
+                            <span class="badge">Challenge 1</span>
+                            <span class="difficulty easy">Easy</span>
+                        </div>
+                        <h3>Draw a Red Circle</h3>
+                        <p>Use the <code>drawCircle</code> function to draw a red circle at position (250, 250) with size 100.</p>
+                        <div class="challenge-editor">
+                            <textarea class="challenge-code" placeholder="Type your solution here...">// Your code here</textarea>
+                            <button class="btn-check" onclick="checkChallenge(1)">Check Answer ✓</button>
+                        </div>
+                        <div class="challenge-feedback" id="feedback-1"></div>
+                    </div>
+
+                    <div class="challenge-card" data-challenge="2">
+                        <div class="challenge-header">
+                            <span class="badge">Challenge 2</span>
+                            <span class="difficulty easy">Easy</span>
+                        </div>
+                        <h3>Draw Three Shapes</h3>
+                        <p>Draw a blue square, a yellow star, and a green circle. Be creative with positions!</p>
+                        <div class="challenge-editor">
+                            <textarea class="challenge-code" placeholder="Type your solution here...">// Your code here</textarea>
+                            <button class="btn-check" onclick="checkChallenge(2)">Check Answer ✓</button>
+                        </div>
+                        <div class="challenge-feedback" id="feedback-2"></div>
+                    </div>
+
+                    <div class="challenge-card" data-challenge="3">
+                        <div class="challenge-header">
+                            <span class="badge">Challenge 3</span>
+                            <span class="difficulty medium">Medium</span>
+                        </div>
+                        <h3>Create a Pattern</h3>
+                        <p>Draw 5 circles in a row using a loop! Hint: Use a for loop to repeat the drawCircle command.</p>
+                        <div class="challenge-editor">
+                            <textarea class="challenge-code" placeholder="Type your solution here...">// Your code here</textarea>
+                            <button class="btn-check" onclick="checkChallenge(3)">Check Answer ✓</button>
+                        </div>
+                        <div class="challenge-feedback" id="feedback-3"></div>
+                    </div>
+
+                    <div class="challenge-card" data-challenge="4">
+                        <div class="challenge-header">
+                            <span class="badge">Challenge 4</span>
+                            <span class="difficulty medium">Medium</span>
+                        </div>
+                        <h3>Draw a Rainbow</h3>
+                        <p>Use the drawRainbow function to create a colorful rainbow at the center of the canvas!</p>
+                        <div class="challenge-editor">
+                            <textarea class="challenge-code" placeholder="Type your solution here...">// Your code here</textarea>
+                            <button class="btn-check" onclick="checkChallenge(4)">Check Answer ✓</button>
+                        </div>
+                        <div class="challenge-feedback" id="feedback-4"></div>
+                    </div>
+
+                    <div class="challenge-card" data-challenge="5">
+                        <div class="challenge-header">
+                            <span class="badge">Challenge 5</span>
+                            <span class="difficulty hard">Hard</span>
+                        </div>
+                        <h3>Create a Spiral</h3>
+                        <p>Draw a spiral using a loop! Hint: Use drawCircle in a loop and change the position and size each time.</p>
+                        <div class="challenge-editor">
+                            <textarea class="challenge-code" placeholder="Type your solution here...">// Your code here</textarea>
+                            <button class="btn-check" onclick="checkChallenge(5)">Check Answer ✓</button>
+                        </div>
+                        <div class="challenge-feedback" id="feedback-5"></div>
+                    </div>
+
+                    <div class="challenge-card" data-challenge="6">
+                        <div class="challenge-header">
+                            <span class="badge">Challenge 6</span>
+                            <span class="difficulty hard">Hard</span>
+                        </div>
+                        <h3>Animate a Bouncing Ball</h3>
+                        <p>Use the animate function to make a ball bounce across the screen!</p>
+                        <div class="challenge-editor">
+                            <textarea class="challenge-code" placeholder="Type your solution here...">// Your code here</textarea>
+                            <button class="btn-check" onclick="checkChallenge(6)">Check Answer ✓</button>
+                            </div>
+                        <div class="challenge-feedback" id="feedback-6"></div>
+                            </div>
+                            </div>
+                <div class="progress-section">
+                    <h3>Your Progress</h3>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                    <p class="progress-text">Completed: <span id="progress-count">0</span> / 6 challenges</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Games Section -->
+        <section id="games" class="section">
+            <div class="container">
+                <h2 class="section-title">Coding Games 🎮</h2>
+                <div class="games-container">
+                    <div class="game-card">
+                        <h3>🎨 Art Generator</h3>
+                        <p>Create random art by coding! Click to generate new patterns.</p>
+                        <canvas id="art-canvas" width="400" height="400"></canvas>
+                        <button class="btn-game" onclick="generateArt()">Generate New Art 🎲</button>
+                    </div>
+                    <div class="game-card">
+                        <h3>🔢 Number Guessing Game</h3>
+                        <p>Code a number guessing game! Try to guess the secret number.</p>
+                        <div id="game-output" class="game-output"></div>
+                        <textarea id="game-code" class="game-code" placeholder="Write your game code here...">// Example: guessNumber(50)</textarea>
+                        <button class="btn-game" onclick="runGame()">Play Game ▶️</button>
+                        <button class="btn-game" onclick="resetGame()">Reset 🔄</button>
+                    </div>
+                    <div class="game-card">
+                        <h3>🎯 Color Mixer</h3>
+                        <p>Mix colors using code! Try: mixColors('red', 'blue')</p>
+                        <div id="color-display" class="color-display"></div>
+                        <textarea id="color-code" class="game-code" placeholder="Try: mixColors('red', 'blue')"></textarea>
+                        <button class="btn-game" onclick="runColorMixer()">Mix Colors 🎨</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>Made with ❤️ for young coders | CodeKids 2024</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
